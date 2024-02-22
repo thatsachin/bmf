@@ -18,7 +18,7 @@ const SignIn = ({ setShowLogin }) => {
             return;
         }
         else {
-            const res = await axios.post("http://localhost:8000/api/v1/auth/login", {
+            const res = await axios.post("https://bmf-backend.onrender.com/api/v1/auth/login", {
                 email,
                 password
             }, { withCredentials: true });
