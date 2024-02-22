@@ -20,14 +20,14 @@ function App() {
   // const navigate = useNavigate();
 
   async function logoutUser() {
-    const res = await axios.get("http://localhost:8000/api/v1/auth/logout", { withCredentials: true });
+    const res = await axios.get("https://bmf-backend.onrender.com/api/v1/auth/logout", { withCredentials: true });
     if(res.data.success) {
       setLoggedIn(false);
     }
   }
 
   async function checkLoggedIn() {
-    const res = await axios.get("http://localhost:8000/api/v1/auth/check-login-status", { withCredentials: true });
+    const res = await axios.get("https://bmf-backend.onrender.com/api/v1/auth/check-login-status", { withCredentials: true });
 
     if(res.data.success) {
       setLoggedIn(true);
