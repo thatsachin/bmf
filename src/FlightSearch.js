@@ -29,7 +29,7 @@ const FlightSearch = () => {
             toast.error("Source and destination cannot be same!");
         } 
         else {
-            const response = await axios.post("http://localhost:8000/api/v1/flight/search", {
+            const response = await axios.post("https://bmf-backend.onrender.com/api/v1/flight/search", {
                 from: searchForm.from,
                 to: searchForm.to,
                 date: searchForm.date
