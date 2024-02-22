@@ -15,7 +15,7 @@ const SignUp = ({ setShowLogin }) => {
             return;
         }
         else {
-            const res = await axios.post("http://localhost:8000/api/v1/auth/register", {
+            const res = await axios.post("https://bmf-backend.onrender.com/api/v1/auth/register", {
                 fullName,
                 email,
                 password
