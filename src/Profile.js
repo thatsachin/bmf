@@ -13,7 +13,7 @@ const Profile = () => {
     }, []);
 
     async function getUserInfo() {
-        const res = await axios.get("http://localhost:8000/api/v1/auth/get-user-data", { withCredentials: true });
+        const res = await axios.get("https://bmf-backend.onrender.com/api/v1/auth/get-user-data", { withCredentials: true });
         if(res.data.success) {
             setFullName(res.data.fullName);
             setEmail(res.data.email);
@@ -30,7 +30,7 @@ const Profile = () => {
             return;
         }
         else {
-            const res = await axios.post("http://localhost:8000/api/v1/auth/update-profile-data", {
+            const res = await axios.post("https://bmf-backend.onrender.com/api/v1/auth/update-profile-data", {
                 fullName,
                 email,
                 password
