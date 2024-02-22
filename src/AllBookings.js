@@ -10,12 +10,12 @@ const AllBookings = () => {
     const [ allBookings, setAllBookings ] = useState([]);
 
     async function getAllBookings() {
-        const res1 = await axios.get("http://localhost:8000/api/v1/flight/get-all-bookings", { withCredentials: true });
+        const res1 = await axios.get("https://bmf-backend.onrender.com/api/v1/flight/get-all-bookings", { withCredentials: true });
         if(res1.data.success) {
             setAllBookings([]);
             const res1Data = res1.data.data;
             res1Data.map(async (data, index) => {
-                const res = await axios.post("http://localhost:8000/api/v1/flight/get-flight-data", { id: data.flightId }, { withCredentials: true });   
+                const res = await axios.post("https://bmf-backend.onrender.com/api/v1/flight/get-flight-data", { id: data.flightId }, { withCredentials: true });   
                 if(res.data.success) {
                     setAllBookings(prevState => [...prevState, {
                         bookingId: data._id,
