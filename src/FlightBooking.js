@@ -18,7 +18,7 @@ const FlightBooking = () => {
 
     async function getFlightData() {
         if(flightId) {
-            const res = await axios.post("http://localhost:8000/api/v1/flight/get-flight-data", { id: flightId }, { withCredentials: true })
+            const res = await axios.post("https://bmf-backend.onrender.com/api/v1/flight/get-flight-data", { id: flightId }, { withCredentials: true })
             if(res.data.success) {
                 setFlightData(res.data.data);
             } else {
@@ -41,9 +41,9 @@ const FlightBooking = () => {
 
     async function startCheckout() {
 
-        const res = await axios.get("http://localhost:8000/api/v1/flight/get-api-key", { withCredentials: true });
+        const res = await axios.get("https://bmf-backend.onrender.com/api/v1/flight/get-api-key", { withCredentials: true });
         // console.log("key is: "+res.data.key);
-        const response = await axios.post("http://localhost:8000/api/v1/flight/book", { flightId, choosenSeats: selectedSeats }, { withCredentials: true });
+        const response = await axios.post("https://bmf-backend.onrender.com/api/v1/flight/book", { flightId, choosenSeats: selectedSeats }, { withCredentials: true });
         // console.log(response.data);
         if(response.data.success) {
             const options = {
@@ -54,7 +54,7 @@ const FlightBooking = () => {
                 "description": "Book My Flight",
                 "image": "https://i.imgur.com/FXvf0J8.png",
                 "order_id": response.data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-                "callback_url": "http://localhost:8000/api/v1/flight/payment-verification",
+                "callback_url": "https://bmf-backend.onrender.com/api/v1/flight/payment-verification",
                 "prefill": {
                     "name": username,
                     "email": "",
