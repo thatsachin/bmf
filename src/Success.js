@@ -11,7 +11,7 @@ const Success = () => {
     const [ flightData, setFlightData ] = useState({});
 
     async function getFlightData() {
-        const res = await axios.post("http://localhost:8000/api/v1/flight/get-booked-ticket-data", { refId: orderRefId }, { withCredentials: true });
+        const res = await axios.post("https://bmf-backend.onrender.com/api/v1/flight/get-booked-ticket-data", { refId: orderRefId }, { withCredentials: true });
         
         if(res.data.success) {
             setFlightData(res.data);
